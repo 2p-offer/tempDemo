@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
  */
 public class AssertTestDemo {
     public static void main(String[] args) {
-        testAssert("2p");
+        testAssert(null);
     }
 
 
