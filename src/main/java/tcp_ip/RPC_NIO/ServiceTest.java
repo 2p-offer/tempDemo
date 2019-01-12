@@ -1,4 +1,4 @@
-package tcp_ip.RPCself;
+package tcp_ip.RPC_NIO;
 
 import java.io.Serializable;
 
@@ -7,6 +7,4 @@ import java.io.Serializable;
  */
 public interface ServiceTest extends Serializable {
     String sayHello(String name);
-
-    int sayOne(int age);
 }

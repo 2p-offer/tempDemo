@@ -1,4 +1,6 @@
-package tcp_ip.RPCself;
+package tcp_ip.RPC_NIO;
+
+import tcp_ip.RPCself.RpcUtil;
 
 import java.net.InetSocketAddress;
 
@@ -12,7 +14,7 @@ public class RpcTest {
         new Thread(()->{
             try {
                 Server server=new ServerImpl(port);
-                server.register(ServiceTest.class.getName(),ServiceTestImpl.class);
+                server.register(ServiceTest.class.getName(), ServiceTestImpl.class);
                 server.start();
 
             } catch (Exception e) {
@@ -25,9 +27,8 @@ public class RpcTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ServiceTest res = RpcUtil.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
+        ServiceTest res = RpcUtilByNio.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
         System.out.println(res.sayHello("wangyan"));
-        System.out.println(res.sayOne(1));
 
 
     }

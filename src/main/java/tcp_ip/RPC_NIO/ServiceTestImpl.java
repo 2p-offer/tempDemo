@@ -1,18 +1,14 @@
-package tcp_ip.RPCself;
+package tcp_ip.RPC_NIO;
 
 /**
  * Created by 2P on 19-1-4.
  */
 public class ServiceTestImpl implements ServiceTest {
+
+    private static final long serialVersionUID = -219988432063763456L;
     @Override
     public String sayHello(String name) {
         return "hello "+name;
-    }
-
-    @Override
-    public int sayOne(int age) {
-
-        return 1;
     }
 
     @Override

@@ -27,6 +27,8 @@ public class RpcUtil<T> {
                 socket = new Socket();
                 socket.connect(address);
                 outputStream = new ObjectOutputStream(socket.getOutputStream());
+
+                //json.tobytes
                 outputStream.writeUTF(inter.getName());
                 outputStream.writeUTF(method.getName());
                 outputStream.writeObject(method.getParameterTypes());

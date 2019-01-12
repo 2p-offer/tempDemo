@@ -33,7 +33,6 @@ public class ServerImpl implements Server {
     public ServerImpl(int port) {
         zkUtils = new ZKUtils();
         this.port = port;
-
     }
 
     private void init() {
@@ -56,8 +55,6 @@ public class ServerImpl implements Server {
         zk.create(CommonConfig.path + serverName, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
     }
 
-    //对象序列化存到zookeeper,最差劲的序列化方式,用OutPutStream,
-    // TODO 可以使用Nio,最好弄弄netty的编解码.
     private byte[] createData(Class impl) throws IOException {
         byte[] bytes;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -80,7 +77,6 @@ public class ServerImpl implements Server {
             //服务端监听客户端socket是否连接,accept()方法会监听是否有连接,有连接就处理,没连接阻塞.所以要使用多线程,实现同时处理多个请求
             Socket accept = client.accept();
             executor.execute(new ServiceTask(accept));
-
         }
     }
 
@@ -91,7 +87,6 @@ public class ServerImpl implements Server {
         public ServiceTask(Socket client) {
             this.client = client;
         }
-
         @Override
         public void run() {
             ObjectInputStream inputStream;
@@ -109,7 +104,6 @@ public class ServerImpl implements Server {
                 //要是模拟多个客户端,看效果,可以打开下面,服务端同时sleep多个客户端请求,直观表达出正在处理多个客户端请求
                 //System.out.println("try to sleep");
                 //Thread.sleep(20000);
-
                 //zk得到的序列化数据,反射执行
                 Method methods = aClass.getMethod(methodName, types);
                 Object invoke = methods.invoke(aClass.newInstance(), parameters);
