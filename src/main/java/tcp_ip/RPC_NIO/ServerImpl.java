@@ -67,7 +67,6 @@ public class ServerImpl implements Server {
     }
 
 
-
     @Override
     public void start() throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
@@ -77,28 +76,24 @@ public class ServerImpl implements Server {
         this.selector = Selector.open();
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (true) {
-            System.out.println("try to select..");
+            System.out.println("server start finish,and listen...");
             selector.select();
             System.out.println("select. finish.");
             Iterator<SelectionKey> ite = selector.selectedKeys().iterator();
             while (ite.hasNext()) {
                 SelectionKey key = ite.next();
-
                 if (key.isAcceptable()) {
                     System.out.println("try to accept..");
-
                     SocketChannel channel = serverSocketChannel.accept();
                     channel.configureBlocking(false);
                     channel.register(selector, SelectionKey.OP_READ);
                 } else if (key.isReadable()) {
                     System.out.println("try to read..");
-
-//                    executor.execute(new ServiceTask((SocketChannel) key.channel()));
-                    try {
-                        handleData((SocketChannel) key.channel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    //加上这个interestOps(0),表示这个key及其对应的chanel,不会在对任何事件感兴趣,
+                    //如果不加,会一直监听到事件,导致一次客户端请求,并发处理.
+                    //和  key.cancel() 效果类似,但是据说cancel 不好
+                    key.interestOps(0);
+                    executor.execute(new ServiceTask((SocketChannel) key.channel()));
                 }
                 ite.remove();
             }
@@ -189,6 +184,7 @@ public class ServerImpl implements Server {
         }
     }
 
+    //单线程使用
     public void handleData(SocketChannel client) throws Exception{
         String serverName="";
         String methodName="";

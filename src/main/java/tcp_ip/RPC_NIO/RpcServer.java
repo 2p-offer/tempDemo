@@ -7,7 +7,7 @@ import java.net.InetSocketAddress;
 /**
  * Created by 2P on 19-1-4.
  */
-public class RpcTest {
+public class RpcServer {
     public static void main(String[] args) {
         int port=8898;
         //起一个线程来启动服务端,其实完全可以再起一个main函数.一样的
@@ -27,9 +27,9 @@ public class RpcTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ServiceTest res = RpcUtilByNio.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
-        System.out.println(res.sayHello("wangyan"));
-        System.out.println(res.addInt(2,4));
+//        ServiceTest res = RpcUtilByNio.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
+//        System.out.println(res.sayHello("wangyan"));
+//        System.out.println(res.addInt(2,4));
 
 
     }
