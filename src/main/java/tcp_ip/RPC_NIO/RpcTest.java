@@ -29,6 +29,7 @@ public class RpcTest {
         }
         ServiceTest res = RpcUtilByNio.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
         System.out.println(res.sayHello("wangyan"));
+        System.out.println(res.addInt(2,4));
 
 
     }

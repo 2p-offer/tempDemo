@@ -12,6 +12,11 @@ public class ServiceTestImpl implements ServiceTest {
     }
 
     @Override
+    public int addInt(int a, int b) {
+        return a+b;
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }

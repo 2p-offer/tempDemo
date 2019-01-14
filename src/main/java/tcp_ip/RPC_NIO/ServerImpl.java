@@ -77,16 +77,22 @@ public class ServerImpl implements Server {
         this.selector = Selector.open();
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (true) {
-
+            System.out.println("try to select..");
             selector.select();
+            System.out.println("select. finish.");
             Iterator<SelectionKey> ite = selector.selectedKeys().iterator();
             while (ite.hasNext()) {
                 SelectionKey key = ite.next();
+
                 if (key.isAcceptable()) {
+                    System.out.println("try to accept..");
+
                     SocketChannel channel = serverSocketChannel.accept();
                     channel.configureBlocking(false);
                     channel.register(selector, SelectionKey.OP_READ);
                 } else if (key.isReadable()) {
+                    System.out.println("try to read..");
+
 //                    executor.execute(new ServiceTask((SocketChannel) key.channel()));
                     try {
                         handleData((SocketChannel) key.channel());
@@ -176,6 +182,7 @@ public class ServerImpl implements Server {
                 //执行结果序列化返回到客户端
                 client.write(ByteBuffer.wrap(bytes));
                 System.out.println("server outputStream,write finish");
+                client.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -249,8 +256,8 @@ public class ServerImpl implements Server {
         byte[] bytes = IOUtils.Obj2Bytes(invoke);
         //执行结果序列化返回到客户端
         client.write(ByteBuffer.wrap(bytes));
-        Thread.sleep(10000);
         System.out.println("server outputStream,write finish");
+        client.close();
     }
 
 
