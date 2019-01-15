@@ -8,6 +8,7 @@ import java.lang.reflect.Proxy;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
+import java.util.Arrays;
 
 /**
  * Created by 2P on 19-1-4.
@@ -41,6 +42,7 @@ public class RpcUtilByNio<T> {
                 ByteBuffer bnParams = ByteBuffer.wrap(strNum4.getBytes());
                 ByteBuffer bfParams = ByteBuffer.wrap(paramsbyte);
 
+                System.out.println(Arrays.toString(serverNameByte)+" "+Arrays.toString(methodNamebyte)+" "+Arrays.toString(typebyte)+" "+Arrays.toString(paramsbyte));
                 channel.write(bnServerName);
                 channel.write(bfServerName);
                 channel.write(bnmethodName);
@@ -54,11 +56,6 @@ public class RpcUtilByNio<T> {
                 System.out.println("channel write finsh..");
 
                 System.out.println("client try to receive data");
-//                byte[] dlByte=new byte[10];
-//                ByteBuffer dataLenth = ByteBuffer.wrap(dlByte);
-//                channel.read(dataLenth);
-//                int anInt = Integer.parseInt(new String(dlByte));
-//                System.out.println("try to get " + anInt + " byte datas,for parameters");
                 byte[] data=new byte[1024];
                 ByteBuffer allocate = ByteBuffer.wrap(data);
                 channel.read(allocate);
@@ -71,5 +68,6 @@ public class RpcUtilByNio<T> {
         });
         return (T)socket_getInputStream_finish;
     }
+
   
 }

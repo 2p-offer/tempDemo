@@ -25,9 +25,6 @@ public class RpcTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ServiceTest res = RpcUtil.getServiceByRpc(ServiceTest.class, new InetSocketAddress("localhost", port));
-        System.out.println(res.sayHello("wangyan"));
-        System.out.println(res.sayOne(1));
 
 
     }
