@@ -3,7 +3,7 @@ package treadSelf.dirtyRead;
 /**
  * Created by 2P on 18-12-11.
  */
-public class DirtyRead {
+public class   DirtyRead {
     private String userName = "userName";
     private String passWord = "passWord";
 

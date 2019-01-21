@@ -101,6 +101,7 @@ public class waitNotify {
 
         final CountDownLatch countDownLatch = new CountDownLatch(1);
 
+
         Thread t1 = new Thread(() -> {
                 for (int i = 0; i < 10; i++) {
                     wn.addList();
@@ -110,6 +111,7 @@ public class waitNotify {
                         if (wn.size() == 5) {
                             System.out.println("t1 发出通知");
                             countDownLatch.countDown();
+
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
