@@ -1,7 +1,8 @@
 package treadSelf.wait_notify_countDownLatch;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
+import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class countDownLatchDemo {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(countDownLatchDemo.class);
+    private static final Logger LOGGER = Logger.getLogger(countDownLatchDemo.class);
 
     public static void main(String[] args) {
 

@@ -4,7 +4,6 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
-import org.springframework.util.StringUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -172,14 +171,14 @@ public class ServerImpl implements Server {
                     dataLenth.clear();
                 }
 //                数据验证
-                if (StringUtils.isEmpty(serverName)) {
-                    System.out.println("================ bad reques serverName is ''");
-                    return;
-                }
-                if (StringUtils.isEmpty(methodName)) {
-                    System.out.println("================ bad reques methodName is ''");
-                    return;
-                }
+//                if (StringUtils.isEmpty(serverName)) {
+//                    System.out.println("================ bad reques serverName is ''");
+//                    return;
+//                }
+//                if (StringUtils.isEmpty(methodName)) {
+//                    System.out.println("================ bad reques methodName is ''");
+//                    return;
+//                }
                 Class aClass = zkUtils.getData(serverName);
                 if (aClass == null) {
                     return;
