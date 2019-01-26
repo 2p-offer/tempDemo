@@ -1,8 +1,9 @@
-package tcp_ip.RPC_netty.Serverpkg;
+package tcp_ip.RPC_netty.mainTest;
 
-import tcp_ip.RPC_netty.Server;
-import tcp_ip.RPC_netty.ServiceTest;
-import tcp_ip.RPC_netty.ServiceTestImpl;
+import tcp_ip.RPC_netty.Serverpkg.Server;
+import tcp_ip.RPC_netty.Serverpkg.ServerImpl;
+import tcp_ip.RPC_netty.beans.ServiceTest;
+import tcp_ip.RPC_netty.beans.ServiceTestImpl;
 
 /**
  * Created by 2P on 19-1-4.

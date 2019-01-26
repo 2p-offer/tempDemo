@@ -1,9 +1,11 @@
-package tcp_ip.RPC_netty.beans;
+package tcp_ip.RPC_netty.commonUtils;
 
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tcp_ip.RPC_netty.beans.MessageRequest;
+import tcp_ip.RPC_netty.beans.MessageResponse;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -43,7 +45,7 @@ public class MessageCallBack {
         try {
             lock.lock();
             this.response = reponse;
-            LOGGER.info("client over ,response:"+reponse);
+//            LOGGER.info("client over ,response:"+reponse);
             finish.signal();
         } finally {
             lock.unlock();

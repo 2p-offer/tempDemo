@@ -8,5 +8,4 @@ import java.io.Serializable;
 public interface ServiceTest extends Serializable {
     String sayHello(String name);
 
-    int sayOne(int age);
 }

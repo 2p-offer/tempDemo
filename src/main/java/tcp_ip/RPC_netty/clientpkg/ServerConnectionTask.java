@@ -33,14 +33,14 @@ public class ServerConnectionTask implements Runnable {
         ChannelFuture channelFuture = b.connect(address);
         channelFuture.addListener((final ChannelFuture cf) -> {
             if (cf.isSuccess()) {
-                LOGGER.info("channel connect success...");
+//                LOGGER.info("channel connect success...");
                 Channel channel = cf.channel();
                 ChannelPipeline pipeline = channel.pipeline();
 
                 ClientHandler handler = pipeline.get(ClientHandler.class);
-                LOGGER.info(loader.toString()+":loader  connect..");
+//                LOGGER.info(loader.toString()+":loader  connect..");
                 ServerConnectionTask.this.loader.setMessageSendHandler(handler);
-                LOGGER.info("set MessageSendHandler success...");
+//                LOGGER.info("set MessageSendHandler success...");
             }
         });
     }

@@ -40,7 +40,7 @@ public class ServerReceiveTask implements Runnable {
             LOGGER.error("RPC Server invoke error!\n");
         } finally {
             ctx.writeAndFlush(response).addListener((ChannelFuture channelFuture) -> {
-                LOGGER.info("RPC Server Send message-id respone:" + request.getMessageId());
+//                LOGGER.info("RPC Server Send message-id respone:" + request.getMessageId());
             });
         }
     }
@@ -57,7 +57,7 @@ public class ServerReceiveTask implements Runnable {
 //                zk得到的序列化数据,反射执行
         Method methods = aClass.getMethod(methodName, types);
         Object invoke = methods.invoke(aClass.newInstance(), parameters);
-        LOGGER.info("server invoke result:" + invoke);
+//        LOGGER.info("server invoke result:" + invoke);
 
         return invoke;
     }

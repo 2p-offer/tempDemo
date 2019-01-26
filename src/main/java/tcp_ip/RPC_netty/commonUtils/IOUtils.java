@@ -1,7 +1,7 @@
 package tcp_ip.RPC_netty.commonUtils;
 
-import tcp_ip.RPC_netty.ServiceTest;
-import tcp_ip.RPC_netty.ServiceTestImpl;
+import tcp_ip.RPC_netty.beans.ServiceTest;
+import tcp_ip.RPC_netty.beans.ServiceTestImpl;
 
 import java.io.*;
 

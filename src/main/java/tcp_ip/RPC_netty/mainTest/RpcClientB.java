@@ -1,4 +1,4 @@
-package tcp_ip.RPC_netty;
+package tcp_ip.RPC_netty.mainTest;
 
 import tcp_ip.RPC_netty.clientpkg.RpcUtilByNio;
 

@@ -19,12 +19,12 @@ public class RpcTest {
                 e.printStackTrace();
             }
         }).start();
-        try {
-            //换成使用zookeeper进行服务注册发现之后,服务端启动变慢,sleep3秒,保证服务端启动之后,客户端再请求.
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //换成使用zookeeper进行服务注册发现之后,服务端启动变慢,sleep3秒,保证服务端启动之后,客户端再请求.
+////            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
 
     }

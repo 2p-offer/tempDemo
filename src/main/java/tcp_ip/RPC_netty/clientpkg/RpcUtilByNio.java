@@ -1,10 +1,9 @@
 package tcp_ip.RPC_netty.clientpkg;
 
 
-import tcp_ip.RPC_netty.beans.MessageCallBack;
+import tcp_ip.RPC_netty.commonUtils.MessageCallBack;
 import tcp_ip.RPC_netty.beans.MessageRequest;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.UUID;

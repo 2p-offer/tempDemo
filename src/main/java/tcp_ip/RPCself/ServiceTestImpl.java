@@ -8,15 +8,4 @@ public class ServiceTestImpl implements ServiceTest {
     public String sayHello(String name) {
         return "hello "+name;
     }
-
-    @Override
-    public int sayOne(int age) {
-
-        return 1;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

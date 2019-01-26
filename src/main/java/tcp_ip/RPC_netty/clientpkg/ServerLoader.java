@@ -14,7 +14,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ServerLoader {
 
     private volatile static ServerLoader rpcServerLoader;
-    private final static String DELIMITER = ":";
     private final Logger LOGGER= Logger.getLogger(this.getClass());
 
     private ClientHandler clientHandler = null;
@@ -43,7 +42,7 @@ public class ServerLoader {
             lock.lock();
             this.clientHandler = clientHandler;
             //唤醒所有等待客户端RPC线程
-            LOGGER.info("try to signalAll()...lock is:"+lock.toString()+"and handler is:"+this.clientHandler);
+//            LOGGER.info("try to signalAll()...lock is:"+lock.toString()+"and handler is:"+this.clientHandler);
             signal.signalAll();
         } finally {
             lock.unlock();
@@ -55,9 +54,9 @@ public class ServerLoader {
             lock.lock();
             //Netty服务端链路没有建立完毕之前，先挂起等待
             if ( clientHandler == null) {
-                LOGGER.info(this.toString()+" try to await()..."+lock.toString());
+//                LOGGER.info(this.toString()+" try to await()..."+lock.toString());
                 signal.await();
-                LOGGER.info("notify..,and handler is :"+clientHandler);
+//                LOGGER.info("notify..,and handler is :"+clientHandler);
             }
             return clientHandler;
         } finally {

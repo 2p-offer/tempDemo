@@ -7,7 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tcp_ip.RPC_netty.beans.MessageCallBack;
+import tcp_ip.RPC_netty.commonUtils.MessageCallBack;
 import tcp_ip.RPC_netty.beans.MessageRequest;
 import tcp_ip.RPC_netty.beans.MessageResponse;
 
@@ -48,7 +48,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         MessageResponse response = (MessageResponse) msg;
         String messageId = response.getMessageId();
         MessageCallBack callBack = mapCallBack.get(messageId);
-        LOGGER.info("client getcallBack.:"+callBack);
+//        LOGGER.info("client getcallBack.:"+callBack);
         if (callBack != null) {
             mapCallBack.remove(messageId);
             callBack.over(response);

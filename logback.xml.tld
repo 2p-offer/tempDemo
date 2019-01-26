@@ -15,7 +15,7 @@
             <!--<Pattern>%d{HH:mm:ss,SSS} [%thread] %-5level %logger{32} - %msg%n</Pattern>-->
         <!--</layout>-->
     <!--</appender>-->
-    <root level="INFO">
+    <root level="ERROR">
         <!--root将级别为"INFO"及大于"INFO"的日志信息交给已经配置好的名为"STDOUT"的appender处理，-->
         <appender-ref ref="STDOUT" />
     </root>

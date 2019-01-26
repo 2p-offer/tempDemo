@@ -27,20 +27,20 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         MessageResponse response = new MessageResponse();
         ServerReceiveTask recvTask = new ServerReceiveTask(request, response, zkUtils, ctx);
         //按说不应阻塞nio线程,其他所有处理交给线程池,
-        LOGGER.info("server receive...");
+//        LOGGER.info("server receive...");
         Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()).execute(recvTask);
     }
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);
-        LOGGER.info("channelRegistered..");
+//        LOGGER.info("channelRegistered..");
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
-        LOGGER.info("channelActive...");
+//        LOGGER.info("channelActive...");
     }
 
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
