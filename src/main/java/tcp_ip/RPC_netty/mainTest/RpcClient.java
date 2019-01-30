@@ -18,7 +18,7 @@ public class RpcClient {
     public static void main(String[] args) throws InterruptedException {
         StopWatch stopWatch=new StopWatch();
         stopWatch.start();
-        int times=10000;
+        int times=1000;
         CountDownLatch single=new CountDownLatch(1);
         CountDownLatch finish=new CountDownLatch(times);
         ServerLoader loader = ServerLoader.getInstance();
