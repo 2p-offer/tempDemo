@@ -14,9 +14,12 @@ public class OOO {
 //            System.out.println(substring+"   substring."+substring.getBytes().length+"   "+substring.length());
 //        }
 //        System.out.println("end...");
+//======================================
+//        byte[] iv = new byte[]{93, 81, 122, 33, 47, 50, 17, 103};
+//        String s=new String(iv);
+//        System.out.println(s);
 
-        byte[] iv = new byte[]{93, 81, 122, 33, 47, 50, 17, 103};
-        String s=new String(iv);
-        System.out.println(s);
+        System.out.println("b9944e9367d2e40dd1f0c4040d4daaf7".getBytes().length);
+
     }
 }

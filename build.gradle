@@ -19,5 +19,6 @@ dependencies {
     compile 'commons-beanutils:commons-beanutils:1.9.3'
     //性能监控器 StopWatch
     compile 'commons-lang:commons-lang:2.6'
+    compile 'redis.clients:jedis:2.9.0'
 
 }
