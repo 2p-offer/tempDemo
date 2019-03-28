@@ -18,8 +18,30 @@ public class OOO {
 //        byte[] iv = new byte[]{93, 81, 122, 33, 47, 50, 17, 103};
 //        String s=new String(iv);
 //        System.out.println(s);
+//
+//        System.out.println("b9944e9367d2e40dd1f0c4040d4daaf7".getBytes().length);
+//
+//
+//        Integer i1 = new Integer(1);
+//        Integer i2 = new Integer(1);
+//        int i3 = 1;
+//        System.out.println(i1 == i2);
+//        System.out.println(i1.intValue() == i2.intValue());
+//        System.out.println(i1 == i3);
 
-        System.out.println("b9944e9367d2e40dd1f0c4040d4daaf7".getBytes().length);
+
+        String s1="abc";
+        String s2="a";
+//        s1=s1.substring(0,1);
+        s1=new String("a");
+        System.out.println(s1==s2);
+        System.out.println(s1.equals(s2));
 
     }
+
+
+    public class son {
+        String s = "oooo'son";
+    }
+
 }

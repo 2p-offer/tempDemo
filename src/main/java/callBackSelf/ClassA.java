@@ -19,6 +19,5 @@ public class ClassA implements MyCallBack
     @Override
     public void onError(String s) {
         System.out.println(s+" receive error");
-
     }
 }
